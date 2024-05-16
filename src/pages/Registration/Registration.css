@@ -1,0 +1,52 @@
+a {
+    text-decoration: none;
+    color: #008080;
+}
+
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.registration-card {
+    background-color: #f0f0f0;
+    padding: 40px;
+    width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.registration-card h2 {
+    margin-bottom: 20px;
+}
+
+.registration-card input[type="text"],
+.registration-card input[type="password"],
+.registration-card input[type="tel"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.create-account-link {
+    display: block;
+    margin-bottom: 20px;
+    text-align: right;
+    color: #666;
+}
+
+.btn-primary {
+    background-color: #008080;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+}

@@ -1,0 +1,75 @@
+*.navbar{
+    background-color: white;
+}
+
+.usericon{
+    background-color:#f0f0f0;
+    border-radius:  50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 4px;
+
+}
+body{
+    background-color: #99D9D9;
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+p{
+font-size: 12px;
+}
+
+.appointment-details {
+  background-color:rgba(255, 255, 255,.5) ;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 15px;
+  flex-basis: 50%;
+  min-width: 400;
+}
+
+.btn-primary{
+  background-color: #008080;
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.btn-secondary{
+  background-color: transparent;
+  border: 1px solid #008080;
+  color: #008080;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.tabs{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+ footer{
+    display:flex;
+    margin: 0 auto;
+    justify-content: right;
+    padding: 20px 0;
+    max-width: 1080px;
+ }
