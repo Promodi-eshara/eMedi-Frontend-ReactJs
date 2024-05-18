@@ -1,0 +1,79 @@
+.container {
+    margin: 40px auto 80px;
+    max-width: 1080px;
+}
+
+.doctor_details {
+    display: flex;
+}
+
+.doctor_details h1{
+    margin: 0;
+    font-size: 36px;
+}
+
+.doctor_details .doctors_specialization{
+    margin: 0;
+    margin-bottom: 16px;
+    color: #666;
+}
+
+.doctor_details .experience{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.doctor_details .details .certificate {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.doctor_details img {
+    width: auto;
+    height: 200px;
+    border-radius: 10px;
+    margin-right: 30px;
+    ;
+}
+
+.icon {
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.bio{
+    color: #666;
+    line-height: 22px;
+    text-align: justify;
+}
+
+.doctor_profile h2{
+    margin: 60px auto 10px;
+}
+
+.schedule button,
+.time button{
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        margin: 16px auto 80px;
+        padding: 0 16px;
+    }
+
+    .doctor_details {
+        flex-direction: column;
+    }
+    
+    .doctor_details img {
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }   
+}

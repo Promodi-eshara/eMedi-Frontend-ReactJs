@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from "react-router-dom"
 import Home from './pages/Home/Home';
@@ -7,21 +6,25 @@ import Registration from './pages/Registration/Registration';
 import DoctorsProfile from './pages/DoctorsProfile/DoctorsProfile';
 import ViewAppointments from'./pages/ViewAppointments/ViewAppointments'; 
 import ScheduleAppointments from'./pages/ScheduleAppointments/ScheduleAppointemts';
+import ConfirmAppointment from './pages/ConfirmAppointment/ConfirmAppointment';
 import UserProfile from './pages/UserProfile/UserProfile';
+import VoiceChat from './pages/VoiceChat/VoiceChat';
+import ReScheduleAppointment from './pages/ReScheduleAppointment/ReScheduleAppointemts';
 
 function App() {
   return (
-    //  <RouterProvider router={router}/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Register" element={<Registration />} />
-      <Route path="/DoctorsProfle" element={<DoctorsProfile />} />
-      <Route path="/ViewAppointments" element={<ViewAppointments/>}/>
-      <Route path="/ScheduleAppointments"element={<ScheduleAppointments/>}/>
-      <Route path="/UserProfile" element={<UserProfile/>}/>
+      <Route path="/DoctorsProfile" element={<DoctorsProfile />} />
+      <Route path="/Appointments" element={<ViewAppointments/>}/>
+      <Route path="/ScheduleAppointment"element={<ScheduleAppointments/>}/>
+      <Route path="/ConfirmAppointment"element={<ConfirmAppointment/>}/>
+      <Route path="/Profile" element={<UserProfile/>}/>
+      <Route path="/VoiceChat" element={<VoiceChat/>}/>
+      <Route path="/ReScheduleAppointment" element={<ReScheduleAppointment/>}/>
     </Routes>
-
   );
 }
 

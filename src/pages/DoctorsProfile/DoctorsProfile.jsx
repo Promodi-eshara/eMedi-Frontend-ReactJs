@@ -1,61 +1,104 @@
-import React from 'react';
-import './DoctorsProfile.css'
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { FaAlignLeft, FaAlignRight, FaUserCircle, FaChevronDown, FaAward, FaUsers } from "react-icons/fa";
+
+import DP_Styles from './DoctorsProfile.module.css'
+import strings from '../../utilities/strings'
 import doctor from '../../assets/docimage.png'
-import {FaUserCircle}from "react-icons/fa";
+
 function DoctorsProfile() {
+    const location = useLocation();
+    const doctorData = location.state?.doctor || {};
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const hospitals = doctorData.Hospitals ? doctorData.Hospitals.split(';').map(hospital => hospital.trim()) : [];
+
     return (
         <div>
             <header>
-                <div className="navbar">
-                    <h2>E - Channel Voice | <span>Doctors Profile</span></h2>
-                    <div className='usericon'><FaUserCircle className='icon'/></div>
+                <div className='navbar'>
+                    <button className='btn_menu' onClick={toggleMenu}><FaAlignLeft /></button>
+                    <h2>{strings.appName} | <span>Doctors Profile</span></h2>
+                    <div className='nav_btn_container'>
+                        <ul>
+                            <li><a href='/Appointments'>Appointments</a></li>
+                            <li><a href='/VoiceChat'>Book Appointment</a></li>
+                        </ul>
+                        <a href='/Profile' className='user_icon'><FaUserCircle className='icon' /></a>
+                    </div>
+                </div>
+
+                <div className={`menu_container ${isMenuOpen ? 'show' : ''}`}>
+                    <div className='menu_header'>
+                        <h2 className='app_name'>{strings.appName}</h2>
+                        <button className='btn_close_menu' onClick={toggleMenu}><FaAlignRight /></button>
+                    </div>
+                    <ul>
+                        <li><a href='/'>Home</a></li>
+                        <li><a href='/Appointments'>Appointments</a></li>
+                        <li><a href='/Profile'>Profile</a></li>
+                        <li><a href='/Login'>Login</a></li>
+                        <li><a href='/Register'>Register</a></li>
+                    </ul>
                 </div>
             </header>
             <section>
-                <div className='container'>
-                    <div className="doctor-profile">
-                        <div className="profile-details">
-                            <img src={doctor} alt="Doctor" className="doctor-image" />
-                            <div className="details">
-                                <h2>Dr. Jhone</h2>
-                                <p>Cardiologist</p>
-                                <img src="certificate-path" alt="Certificate" className="certificate" />
-                                <p>Patents: 200+</p>
-                                <p>7 Year Experience</p>
+                <div className={DP_Styles.container}>
+                    <div className={DP_Styles.doctor_profile}>
+                        <div className={DP_Styles.doctor_details}>
+                            <img src={doctor} alt="Doctor" className={DP_Styles.doctor_img} />
+                            <div className={DP_Styles.details}>
+                                <h1 className={DP_Styles.doctors_name}>{doctorData.Name}</h1>
+                                <p className={DP_Styles.doctors_specialization}>{doctorData.Specialization}</p>
+                                <div className={DP_Styles.experience}><span className={DP_Styles.certificate}><FaAward /></span><p>7 Years of Experience</p></div>
+                                <div className={DP_Styles.experience}><span className={DP_Styles.certificate}><FaUsers /></span><p>20,000+ Patients</p></div>
                             </div>
                         </div>
 
                         <h2>Biography</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                        <h3>Hospital</h3>
-                        <button className="btn-primary">Select a hopsital &nbsp V</button>
+                        <p className={DP_Styles.bio}>{doctorData.Biography}</p>
 
-
-                        <h3>Schedule</h3>
-                        <div className="schedule">
-                            <button className="btn-primary">May 12</button>
-                            <button className="btn-primary">May 13</button>
-                            <button className="btn-disabled">May 14</button>
-                            <button className="btn-primary">May 15</button>
-                            <button className="btn-disabled">May 16</button>
-                            <button className="btn-primary">May 17</button>
-                            <button className="btn-disabled">May 18</button>
-                            <button className="btn-primary">May 19</button>
+                        <h2>Hospital</h2>
+                        <div className="dropdown">
+                            <button className="btn_drop" onClick={toggleDropdown}>Show all hospitals <span className={DP_Styles.icon}><FaChevronDown /></span></button>
+                            <div className={`dropdown_content ${isDropdownOpen ? 'show' : ''}`}>
+                                {hospitals.map((hospital, index) => (
+                                    <a key={index} href="javascript:void(0)">{hospital}</a>
+                                ))}
+                            </div>
                         </div>
 
-                        <h3>Time</h3>
-                        <div class="time">
-                            <button class="btn-disabled">4.00 PM</button>
-                            <button class="btn-primary">6.00 PM</button>
-                            <button class="btn-primary">6.00 PM</button>
-                            <button class="btn-primary">7.00 PM</button>
-                            <button class="btn-disabled">8.00 PM</button>
-                            <button class="btn-primary">9.00 PM</button>
-                           
+                        <h2>Schedule</h2>
+                        <div className={DP_Styles.schedule}>
+                            <button className='btn_secondary'>May 12</button>
+                            <button className='btn_secondary'>May 13</button>
+                            <button className='btn_secondary'>May 14</button>
+                            <button className='btn_disabled'>May 15</button>
+                            <button className='btn_secondary'>May 16</button>
+                            <button className='btn_disabled'>May 17</button>
+                            <button className='btn_disabled'>May 18</button>
+                            <button className='btn_secondary'>May 19</button>
                         </div>
-                        <hr />
-                        <button className="btn-secondary">Back</button>
-                        <button className="btn-primary">Next</button>
+
+                        <h2>Time</h2>
+                        <div className={DP_Styles.time}>
+                            <button className='btn_disabled'>4.00 PM</button>
+                            <button className='btn_secondary'>6.00 PM</button>
+                            <button className='btn_secondary'>6.00 PM</button>
+                            <button className='btn_secondary'>7.00 PM</button>
+                            <button className='btn_disabled'>8.00 PM</button>
+                            <button className='btn_disabled'>9.00 PM</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -63,4 +106,4 @@ function DoctorsProfile() {
     );
 }
 
-export default DoctorsProfile; 
+export default DoctorsProfile;

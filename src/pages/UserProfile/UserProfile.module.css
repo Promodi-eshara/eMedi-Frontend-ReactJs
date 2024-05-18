@@ -1,0 +1,107 @@
+.container {
+  max-width: 1080px;
+  margin: auto;
+  margin-bottom: 80px;
+}
+
+.user_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 28px 0;
+}
+
+.user_info img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.user_info h1,
+.user_info p {
+  margin: 0;
+}
+
+.user_info p {
+  color: #666;
+}
+
+.user_info button {
+  margin-top: 16px;
+}
+
+.profile_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile_container form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  min-width: 500px;
+}
+
+.profile_container form label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.information {
+  min-width: 500px;
+}
+
+.information h4 {
+  margin: 0;
+}
+
+.information p {
+  margin: 0;
+  margin-bottom: 18px;
+  color: #666;
+  font-size: 14px;
+}
+
+.btn_logout {
+  background-color: #DC4C64;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.btn_primary:hover {
+  background-color: #db1a3a;
+}
+
+@media screen and (max-width: 668px) {
+  .information {
+    min-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .user_info img {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    padding: 0 16px;
+  }
+}
